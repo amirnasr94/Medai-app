@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import { Link } from "expo-router";
+import { Redirect, router } from "expo-router";
 import images from "../constants/images";
 import CustomButton from "@/components/CustomButton";
 import { StatusBar } from "expo-status-bar";
@@ -44,13 +44,14 @@ export default function index() {
           </Text>
           <CustomButton
             title="Continue with Email"
-            handlePress={() => {}}
-            styles="w-full mt-8"
-            isLoading
+            handlePress={() => router.push("/(auth)/signIn")}
+            containerStyles="w-full mt-8"
+            textStyles=""
+            isLoading={false}
           />
         </View>
+        <StatusBar backgroundColor="#161622" style="light" />
       </ScrollView>
-      <StatusBar backgroundColor="#161622" style="light" />
     </SafeAreaView>
   );
 }

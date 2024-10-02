@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { Stack } from 'expo-router'
 
 export default function LayoutAuth() {
   return (
-    <View>
-      <Text>_layout</Text>
-    </View>
+    <>
+      <Stack>
+        <Stack.Screen name='signIn' options={{headerShown:false,title:'sign-in',headerTitle:'sss'}}/>
+        <Stack.Screen name='signUp' options={{headerShown:false}}/>
+      </Stack>
+    </>
   )
 }
 

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function SignOut() {
+export default function SignUp() {
   return (
     <View>
       <Text>SignOut</Text>
