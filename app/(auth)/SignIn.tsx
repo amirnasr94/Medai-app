@@ -9,16 +9,32 @@ import {
 import React, { useState } from "react";
 import images from "@/constants/images";
 import FormField from "@/components/FormField";
+import CustomButton from "@/components/CustomButton";
+import { Link } from "expo-router";
 ("../../constants/images");
+import { users } from "../../constants/user";
+import * as accounts from "../user.json";
 
 export default function SignIn() {
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+  const [loadiong, setLoading] = useState(false);
+  console.log("accounts", JSON.parse(JSON.stringify(accounts)).default);
 
-  //console.log();
-  
+  const handleSubmit = () => {
+    // console.log(allUsers);
+    const allUsers = JSON.parse(JSON.stringify(accounts)).default
+    const index = allUsers.findIndex((user: any) => {
+      return user.email === form.email && user.password === form.password;
+    });
+
+    if (index !== -1) {
+      alert("succes");
+    } else alert("faild");
+  };
+
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
@@ -52,6 +68,23 @@ export default function SignIn() {
           styles="mt-7"
           keyboardType="email-address"
         />
+        <CustomButton
+          title="Sign In"
+          containerStyles="mt-7"
+          isLoading={loadiong}
+          handlePress={handleSubmit}
+        />
+        <View className="justify-center pt-5 flex-row gap-4">
+          <Text className="text-lg text-gray-100 font-pregular">
+            Don't have an Account?
+          </Text>
+          <Link
+            href="/signUp"
+            className="text-lg text-secondary font-psemibold"
+          >
+            Sign Up
+          </Link>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
