@@ -39,6 +39,7 @@ export default function FormField({
           onChangeText={handleChangeText}
           placeholderTextColor="#7b7b8b"
           secureTextEntry={title === "Password" && !showPassword}
+          {...props}
         />
         {title === "Password" ? (
           <TouchableOpacity

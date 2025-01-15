@@ -34,8 +34,8 @@ export default function LayoutTabs() {
           tabBarStyle: {
             height: 70,
             backgroundColor: "#161622",
-            borderTopEndRadius: 10,
-            borderTopStartRadius: 10,
+            // borderTopEndRadius: 10,
+            // borderTopStartRadius: 10,
           },
         }}
       >

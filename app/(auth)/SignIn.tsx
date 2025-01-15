@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import images from "@/constants/images";
 import FormField from "@/components/FormField";
 import CustomButton from "@/components/CustomButton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 ("../../constants/images");
 import { users } from "../../constants/user";
 import * as accounts from "../user.json";
@@ -21,17 +21,15 @@ export default function SignIn() {
     password: "",
   });
   const [loadiong, setLoading] = useState(false);
-  console.log("accounts", JSON.parse(JSON.stringify(accounts)).default);
 
   const handleSubmit = () => {
-    // console.log(allUsers);
-    const allUsers = JSON.parse(JSON.stringify(accounts)).default
+    const allUsers = JSON.parse(JSON.stringify(accounts)).default;
     const index = allUsers.findIndex((user: any) => {
       return user.email === form.email && user.password === form.password;
     });
 
     if (index !== -1) {
-      alert("succes");
+      router.replace('/Home')
     } else alert("faild");
   };
 
